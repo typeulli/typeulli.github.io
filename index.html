@@ -41,6 +41,15 @@ body {
     font-weight: 400;
 }
 
+a {
+    font-weight: bold;
+    font-size: 3em;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
         </style>
         <script>
 function updateTimer() {
@@ -48,27 +57,33 @@ function updateTimer() {
     const now = new Date();
     const diff = future - now;
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    const mins = Math.floor(diff / (1000 * 60));
-    const secs = Math.floor(diff / 1000);
+    console.log(diff)
+    if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const mins = Math.floor(diff / (1000 * 60));
+        const secs = Math.floor(diff / 1000);
 
-    const d = days;
-    const h = hours - days * 24;
-    const m = mins - hours * 60;
-    const s = secs - mins * 60;
-    document.getElementById("timer")
-    .innerHTML =
-    '<div>' + h + '<span>Hours</span></div>' +
-    '<div>' + m + '<span>Minutes</span></div>' +
-    '<div>' + s + '<span>Seconds</span></div>';
+        const d = days;
+        const h = hours - days * 24;
+        const m = mins - hours * 60;
+        const s = secs - mins * 60;
+        document.getElementById("timer")
+        .innerHTML =
+        '<h1>KSA 2차 발표까지</h1>' +
+        '<div>' + h + '<span>Hours</span></div>' +
+        '<div>' + m + '<span>Minutes</span></div>' +
+        '<div>' + s + '<span>Seconds</span></div>';
+    } else {
+        document.getElementById("body")
+        .innerHTML = "<a href=https://admission.ksa.hs.kr/iphak_kor/>[KSA 바로가기] 합격을 기원합니다!</a>"
+    }
 }
 
 setInterval(updateTimer, 1000);
         </script>
     </head>
-    <body>
-        <h1>KSA 2차 발표까지</h1>
+    <body id="body">
         <div id="timer"></div>
     </body>
 </html>
