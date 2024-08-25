@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
     <head>
-        <title>KSA 발표 남은시간</title>
+        <title>KSA 3차 발표 남은시간</title>
         <style>
 body {
     display: flex;
@@ -45,6 +45,10 @@ a {
     font-weight: bold;
     font-size: 3em;
 }
+p {
+    font-weight: bold;
+    font-size: 0.5em;
+}
 
 h1 {
     font-size: 1.5em;
@@ -53,7 +57,7 @@ h1 {
         </style>
         <script>
 function updateTimer() {
-    const future = Date.parse("2024/08/08 10:00:00");
+    const future = Date.parse("2024/08/26 10:00:00");
     const now = new Date();
     const diff = future - now;
 
@@ -70,10 +74,11 @@ function updateTimer() {
         const s = secs - mins * 60;
         document.getElementById("timer")
         .innerHTML =
-        '<h1>KSA 2차 발표까지</h1>' +
+        '<h1>KSA 3차 발표까지</h1>' +
         '<div>' + h + '<span>Hours</span></div>' +
         '<div>' + m + '<span>Minutes</span></div>' +
-        '<div>' + s + '<span>Seconds</span></div>';
+        '<div>' + s + '<span>Seconds</span></div>' +
+        '<p>발표 시간이 되면 KSA 접속 링크가 표시됩니다.</p>';
     } else {
         document.getElementById("body")
         .innerHTML = "<a href=https://admission.ksa.hs.kr/iphak_kor/>[KSA 바로가기] 합격을 기원합니다!</a>"
